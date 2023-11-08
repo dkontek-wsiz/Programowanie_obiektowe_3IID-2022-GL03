@@ -7,8 +7,29 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-            var licz = new Licz();
+            Zad1();
 
+            Zad2();
+        }
+
+        private static void Zad2()
+        {
+            var sumator = new Sumator(new int[] { 1, 5, 6, 2, 7 });
+
+            Console.WriteLine(sumator.Suma());
+            Console.WriteLine(sumator.SumaPodziel3());
+
+          
+            sumator.DisplayLiczby();
+            Console.WriteLine("========");
+            sumator.DisplayLiczby(-2, 2);
+            Console.WriteLine("========");
+            sumator.DisplayLiczby(-2, 16);
+        }
+
+        static void Zad1()
+        {
+            var licz = new Licz();
 
             licz.DisplayValue();
 
