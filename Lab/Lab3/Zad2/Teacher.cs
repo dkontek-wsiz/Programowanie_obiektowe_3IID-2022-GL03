@@ -20,7 +20,7 @@ namespace Lab3.Zad2
 
         public void DisplayClass(DateTime date)
         {
-            Console.WriteLine($"{School} Data: {date.ToShortDateString()}"); 
+            Console.WriteLine($"{School} Data: {date.DayOfWeek}"); 
             Console.WriteLine($"Nauczyciel: {Title} {GetFullName()}");
             Console.WriteLine($"Lista studentów");
 
