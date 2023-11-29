@@ -17,7 +17,7 @@ namespace Lab5
 
             bookRepository.Create(new Book() {Id = 1, Title = "Test" });
             bookRepository.Create(new Book() { Id = 2, Title = "Test2" });
-            bookRepository.Create(new Book() { Id = 3, Title = "Test3" });
+            bookRepository.Create(new Book() { Id = 3, Title = "Test3", Author="Me", PublishYear = 2000 });
 
             foreach(var item in bookRepository.GetAll())
             {
@@ -32,6 +32,34 @@ namespace Lab5
             bookRepository.Delete(2);
 
             Console.WriteLine(bookRepository.GetAll().Count);
+            Console.WriteLine(bookRepository.GetBooksByPublishYear(2000).Count);
+            Console.WriteLine(bookRepository.GetBooksByAuthor("Me").Count);
+
+            IPersonRepository personRepository = new MockPersonRepository();
+
+            personRepository.Create(new Person() {Id = 1, FirstName = "Test" });
+            personRepository.Create(new Person() { Id = 2, FirstName = "Test2" });
+            personRepository.Create(new Person() { Id = 3, FirstName = "Test3" });
+
+            foreach(var item in personRepository.GetAll())
+            {
+                Console.WriteLine(item.FirstName);
+            }
+
+            var person = personRepository.Get(1);
+
+            person.FirstName = "Test4";
+            personRepository.Update(person);
+            Console.WriteLine(personRepository.Get(1).FirstName);
+            personRepository.Delete(2);
+
+            Console.WriteLine(personRepository.GetAll().Count);
+
+            personRepository.BorrowBook(person.Id, book);
+            foreach (var item in personRepository.GetBorrowedBook(person.Id))
+            {
+                Console.WriteLine(item.Title);
+            }
            
         }
 

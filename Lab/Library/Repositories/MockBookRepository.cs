@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Library.Models;
 
@@ -34,6 +35,16 @@ namespace Library.Repositories
             var index = data.FindIndex(x => x.Id == input.Id);
             if(index > -1)
                 data[index] = input;
+        }
+
+        public List<Book> GetBooksByAuthor(string author)
+        {
+            return data.Where(x => x.Author == author).ToList();
+        }
+
+        public List<Book> GetBooksByPublishYear(int year)
+        {
+            return data.Where(x => x.PublishYear == year).ToList();
         }
     }
 }
