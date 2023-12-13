@@ -61,11 +61,5 @@ namespace Lab7.Controllers
         {
             _bookRepository.Delete(id);
         }
-
-        [HttpGet]
-        public long Test()
-        {
-            return 5;
-        }
     }
 }

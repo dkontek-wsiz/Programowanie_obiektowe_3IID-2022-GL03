@@ -11,6 +11,7 @@ namespace Library.Repositories
 
         public void Create(Person input)
         {
+            input.Id = data.Count + 1;
             data.Add(input);
         }
 

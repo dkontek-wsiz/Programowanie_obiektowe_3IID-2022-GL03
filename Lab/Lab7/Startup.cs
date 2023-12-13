@@ -30,6 +30,7 @@ namespace Lab7
             services.AddSwaggerGen();
 
             services.AddSingleton<IBookRepository, MockBookRepository>();
+            services.AddSingleton<IPersonRepository, MockPersonRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
